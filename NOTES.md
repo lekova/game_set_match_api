@@ -11,3 +11,59 @@ User Stories
 9. As an user I should be able to see my progress (statistics of games played, wins and losses).
 10. As an user I should be able to see statistics of my favorite users and my favorite tennis courts.
 11. As an user I should be able to send another user a message.
+
+
+Database
+
+User
+  Name
+  Age
+  Gender
+  City/Town
+  Proficiency Level
+
+Address
+  Street
+  City
+  State
+  Zip
+
+User_Addresses
+  User_Id
+  Address_Id
+  Type
+
+Proficiency_Level
+  Name
+  Description
+
+User_Proficiency_Level
+  User_Id
+  Proficiency_Level_Id
+  User_Comment
+
+Game
+  Date Time
+  Duration
+  Place
+  Winner_Id
+  Loser_Id
+  Comment
+
+Rating
+  Game_Id
+  Rating_Player_Id
+  Rated_Player_Id
+  Rate
+
+Game_Players
+  Game_id
+  Player_One_Id
+  Player_Two_Id
+
+
+Tennis courts ? Get them from Google somehow
+
+Create a calendar or get one from Google Calendar API
+
+How to store availability times?
