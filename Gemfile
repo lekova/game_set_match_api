@@ -19,6 +19,28 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'hirb'
+
+gem 'pry-rails'
+
+gem 'spring'
+
+gem "active_model_serializers", github: "rails-api/active_model_serializers"
+
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
+gem 'aws-sdk-v1'
+
+gem 'dotenv-rails'
+
+# Use ActiveModel has_secure_password
+ gem 'bcrypt', '~> 3.1.7'
+
+gem 'rack-cors', :require => 'rack/cors'
+
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
