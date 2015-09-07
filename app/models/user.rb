@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
   has_many :addresses, through: :user_addresses
   has_many :user_addresses
 
+  has_many :proficiency_types, through: :user_proficiency_types
+  has_many :user_proficiency_types
 
-  has_one :proficiency
+
   has_many :winner_games, class_name: "Game", foreign_key: "winner_id", dependent: :destroy
   has_many :loser_games, class_name: "Game", foreign_key: "loser_id", dependent: :destroy
   has_many :game_ratings, through: :winner_games, source: :game
