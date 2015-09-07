@@ -71,3 +71,25 @@ How to store availability times?
 
 
 Email and Zipcode validations: https://github.com/DavyJonesLocker/client_side_validations/wiki/Custom-Validators
+
+
+Proficiency Types
+
+1. Newbie
+    What's a tennis racquet?
+2. Rookie
+    There is always hope!
+3. Beginner
+    Enjoy when you can, endure when you must
+4. Talented
+    I'm getting there, all I need is practice, practice, practice
+5. Intermediate
+    The more I play the better I become
+6. Seasoned
+    I may not always win, but when I do, I do it with style
+7. Advanced
+    I have my own style
+8. Proficient
+    I'm just good at this
+9. Expert
+    I'm Roger Federer's cousin
