@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150906162453) do
   add_index "user_addresses", ["address_id"], name: "index_user_addresses_on_address_id", using: :btree
   add_index "user_addresses", ["user_id"], name: "index_user_addresses_on_user_id", using: :btree
 
-  create_table "user_proficiency", force: :cascade do |t|
+  create_table "user_proficiency_types", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "proficiency_type_id"
     t.string   "user_comment"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 20150906162453) do
     t.datetime "updated_at",          null: false
   end
 
-  add_index "user_proficiency", ["proficiency_type_id"], name: "index_user_proficiency_on_proficiency_type_id", using: :btree
-  add_index "user_proficiency", ["user_id"], name: "index_user_proficiency_on_user_id", using: :btree
+  add_index "user_proficiency_types", ["proficiency_type_id"], name: "index_user_proficiency_types_on_proficiency_type_id", using: :btree
+  add_index "user_proficiency_types", ["user_id"], name: "index_user_proficiency_types_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",              null: false
@@ -105,6 +105,6 @@ ActiveRecord::Schema.define(version: 20150906162453) do
   add_foreign_key "games", "users", column: "loser_id"
   add_foreign_key "user_addresses", "addresses"
   add_foreign_key "user_addresses", "users"
-  add_foreign_key "user_proficiency", "proficiency_types"
-  add_foreign_key "user_proficiency", "users"
+  add_foreign_key "user_proficiency_types", "proficiency_types"
+  add_foreign_key "user_proficiency_types", "users"
 end

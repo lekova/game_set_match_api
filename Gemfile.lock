@@ -148,8 +148,6 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    validates_zipcode (0.0.8)
-      activemodel (>= 3.2.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -174,7 +172,6 @@ DEPENDENCIES
   rails (= 4.2.4)
   sdoc (~> 0.4.0)
   spring
-  validates_zipcode
   web-console (~> 2.0)
 
 BUNDLED WITH
