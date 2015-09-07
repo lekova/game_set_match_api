@@ -30,11 +30,13 @@ ActiveRecord::Schema.define(version: 20150906162453) do
     t.integer  "game_id"
     t.integer  "user_id"
     t.integer  "rate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "user_comment"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "game_ratings", ["game_id"], name: "index_game_ratings_on_game_id", using: :btree
+  add_index "game_ratings", ["user_id", "game_id"], name: "index_game_ratings_on_user_id_and_game_id", unique: true, using: :btree
 
   create_table "games", force: :cascade do |t|
     t.datetime "datetime"

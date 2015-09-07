@@ -180,3 +180,33 @@ UserProficiencyType.create!([
     user_comment: ""
   }
 ])
+
+Game.create!([
+  {
+  id: 1,
+  datetime: Time.now,
+  duration: 90,
+  place: "Somerville",
+  winner_id: 1,
+  loser_id: 2,
+  comment: "We are playing at Sommerville. On the Tufts tennis courts.",
+  status: 2,
+  score: '{1: "6:4", 2:, "7:6", 3: "6:5"}'
+  }
+])
+
+GameRating.create!([
+  {
+    id: 1,
+    game_id: 1,
+    user_id: 1,
+    rate: 5,
+    user_comment: "It was a great game, need to be more efficient with the distance"
+  }, {
+    id: 2,
+    game_id: 1,
+    user_id: 2,
+    rate: 4,
+    user_comment: "Need to work on my backhand, cuz missing those ones"
+  }
+])
