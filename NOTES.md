@@ -16,11 +16,12 @@ User Stories
 Database
 
 User
+  Email
+  Password
   Name
   Age
   Gender
-  City/Town
-  Proficiency Level
+  Photo
 
 Address
   Street
@@ -67,3 +68,6 @@ Tennis courts ? Get them from Google somehow
 Create a calendar or get one from Google Calendar API
 
 How to store availability times?
+
+
+Email and Zipcode validations: https://github.com/DavyJonesLocker/client_side_validations/wiki/Custom-Validators
