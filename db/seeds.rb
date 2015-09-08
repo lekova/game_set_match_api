@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.delete_all
+User.destroy_all
 User.create([
   { id: 1,
     email: "lin@lin.com",
@@ -46,16 +46,16 @@ User.create([
   }
 ])
 
-Address.delete_all
+Address.destroy_all
 Address.create!([
   {
-  #   id: 1,
-  #   street: "Hillside Cir",
-  #   city: "Somerville",
-  #   state: "MA",
-  #   zipcode: "02143",
-  #   country: "US"
-  # }, {
+    id: 1,
+    street: "Hillside Cir",
+    city: "Somerville",
+    state: "MA",
+    zipcode: "02143",
+    country: "US"
+  }, {
     id: 2,
     street: "Hillside Cir",
     city: "Somerville",
@@ -86,14 +86,14 @@ Address.create!([
   }
 ])
 
-UserAddress.delete_all
+UserAddress.destroy_all
 UserAddress.create([
   {
-  #   id: 1,
-  #   user_id: 1,
-  #   address_id: 1,
-  #   name: "home"
-  # },{
+    id: 1,
+    user_id: 1,
+    address_id: 1,
+    name: "home"
+  },{
     id: 2,
     user_id: 1,
     address_id: 5,
@@ -116,7 +116,7 @@ UserAddress.create([
   }
 ])
 
-ProficiencyType.delete_all
+ProficiencyType.destroy_all
 ProficiencyType.create!([
   {
     id: 1,
@@ -137,7 +137,7 @@ ProficiencyType.create!([
   {
     id: 5,
     name: "Intermediate",
-    scription: "The more I play the better I become"},
+    description: "The more I play the better I become"},
   {
     id: 6,
     name: "Seasoned",
@@ -156,30 +156,30 @@ ProficiencyType.create!([
     description: "I'm Roger Federer's cousin"}
 ])
 
-UserProficiencyType.delete_all
-UserProficiencyType.create!([
-  {
-    id: 1,
-    user_id: 1,
-    proficiency_type_id: 3,
-    user_comment: ""
-  }, {
-    id: 2,
-    user_id: 2,
-    proficiency_type_id: 2,
-    user_comment: ""
-  }, {
-    id: 3,
-    user_id: 3,
-    proficiency_type_id: 4,
-    user_comment: ""
-  }, {
-    id: 4,
-    user_id: 4,
-    proficiency_type_id: 3,
-    user_comment: ""
-  }
-])
+UserProficiencyType.destroy_all
+# UserProficiencyType.create!([
+#   {
+#     id: 1,
+#     user_id: 1,
+#     proficiency_type_id: 3,
+#     user_comment: ""
+#   }, {
+#     id: 2,
+#     user_id: 2,
+#     proficiency_type_id: 2,
+#     user_comment: ""
+#   }, {
+#     id: 3,
+#     user_id: 3,
+#     proficiency_type_id: 4,
+#     user_comment: ""
+#   }, {
+#     id: 4,
+#     user_id: 4,
+#     proficiency_type_id: 3,
+#     user_comment: ""
+#   }
+# ])
 
 Game.create!([
   {
