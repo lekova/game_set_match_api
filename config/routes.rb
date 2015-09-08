@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 
   post '/addresses'     => 'addresses#create'
   post '/addresses/:id' => 'addresses#update'
-  get '/users/:id/addresses'      => 'addresses#index'
-  get '/users/:id/addresses/:addr_id'  => 'addresses#show'
+  get 'addresses'      => 'addresses#index'
+  get '/addresses/:id'  => 'addresses#show'
   delete 'addresses'    => 'addresses#destroy'
 
 
