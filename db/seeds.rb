@@ -10,7 +10,8 @@ User.destroy_all
 User.create([
   { id: 1,
     email: "lin@lin.com",
-    password_digest: "lin",
+    password: "lin",
+    password_confirmation: "lin",
     name: "Lina",
     age: 12,
     gender: "f",
@@ -19,7 +20,8 @@ User.create([
   }, {
     id: 2,
     email: "rad@rad.com",
-    password_digest: "rad",
+    password: "rad",
+    password_confirmation: "rad",
     name: "Rado",
     age: 14,
     gender: "m",
@@ -28,7 +30,8 @@ User.create([
   }, {
     id: 3,
     email: "val@val.com",
-    password_digest: "val",
+    password: "val",
+    password_confirmation: "val",
     name: "Val",
     age: 14,
     gender: "m",
@@ -37,7 +40,8 @@ User.create([
   }, {
     id: 4,
     email: "alex@alex.com",
-    password_digest: "alex",
+    password: "alex",
+    password_confirmation: "alex",
     name: "Alex",
     age: 11,
     gender: "f",
@@ -157,29 +161,29 @@ ProficiencyType.create!([
 ])
 
 UserProficiencyType.destroy_all
-# UserProficiencyType.create!([
-#   {
-#     id: 1,
-#     user_id: 1,
-#     proficiency_type_id: 3,
-#     user_comment: ""
-#   }, {
-#     id: 2,
-#     user_id: 2,
-#     proficiency_type_id: 2,
-#     user_comment: ""
-#   }, {
-#     id: 3,
-#     user_id: 3,
-#     proficiency_type_id: 4,
-#     user_comment: ""
-#   }, {
-#     id: 4,
-#     user_id: 4,
-#     proficiency_type_id: 3,
-#     user_comment: ""
-#   }
-# ])
+UserProficiencyType.create!([
+  {
+    id: 1,
+    user_id: 1,
+    proficiency_type_id: 3,
+    user_comment: ""
+  }, {
+    id: 2,
+    user_id: 2,
+    proficiency_type_id: 2,
+    user_comment: ""
+  }, {
+    id: 3,
+    user_id: 3,
+    proficiency_type_id: 4,
+    user_comment: ""
+  }, {
+    id: 4,
+    user_id: 4,
+    proficiency_type_id: 3,
+    user_comment: ""
+  }
+])
 
 Game.create!([
   {
