@@ -4,4 +4,5 @@ class Game <ActiveRecord::Base
 
   validates :winner, presence: true
   validates :loser, presence: true
+  has_many :game_ratings, dependent: :destroy
 end
