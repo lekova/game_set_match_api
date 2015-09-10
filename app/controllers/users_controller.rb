@@ -4,8 +4,7 @@ class UsersController < ApplicationController
 
   # POST /login
   def login
-    credentials = user_credentials
-    token = User.login(credentials[:email], credentials[:password])
+    token = User.login(params[:email], params[:password])
     if token
       render json: { token: token }
     else
@@ -16,23 +15,29 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # curr_addr = current_user.
+    @users = User.joins(:addresses).where({addresses: {city: current_user.addresses.first.city}})
     render json: @users
+  end
+
+  def refresh_navbar
+    render json: current_user
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    render json: @user
+    render json: User.find(params[:id])
   end
 
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_credentials)
 
+    @user = User.new(user_credentials)
+    @user.user_proficiency_types.new(proficiency_params)
     if @user.save
-      render json: @user, status: :created, location: @user
+      render json: @user, status: :created, location: @user, serializer: UserRegisteredSerializer
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -50,18 +55,19 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
     @user.destroy
-
     head :no_content
   end
 
   private
 
     def user_credentials
-      params.require(:credentials).permit(:email, :password, :password_confirmation)
+      params.require(:credentials).permit(:email, :password, :password_confirmation, :name, :age, :gender, :about_me, :image)
     end
 
     def set_user
@@ -70,5 +76,9 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :name, :age, :gender, :about_me, :image)
+    end
+
+    def proficiency_params
+      params.require(:proficiency).permit(:proficiency_type_id)
     end
 end
