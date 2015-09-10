@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # resources :users, except: [:new, :edit]
 
   post '/login'       => 'users#login'
-  post '/register'    => 'users#create'
+  post '/signup'    => 'users#create'
   get '/users'        => 'users#index'
   get '/users/:id'    => 'users#show'
   delete '/users/:id' => 'users#destroy'
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/addresses/:id'  => 'addresses#show'
   delete 'addresses'    => 'addresses#destroy'
 
+  get '/refresh-navbar', to: 'users#refresh_navbar'
 
   resources :users do
     resources :addresses
