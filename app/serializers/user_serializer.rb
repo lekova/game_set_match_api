@@ -1,11 +1,11 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :email, :name, :age, :gender, :about_me, :image, :current_proficiency_type
   # , :all_time_proficiency_types
+  has_many :addresses
 
   def current_proficiency_type
     # returns last proficiency_type for current user
     object.proficiency_types.last.name
-    object.proficiency_types.last.
   end
 
   # def all_time_proficiency_types
