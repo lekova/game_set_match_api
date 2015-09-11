@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     resources :addresses
   end
 
+  resources :games
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
