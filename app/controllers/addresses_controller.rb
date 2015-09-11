@@ -13,7 +13,6 @@ class AddressesController < OpenReadController
 
   def create
     address = Address.create(addr_params)
-    puts "==== addr params: #{addr_params}"
     if address.save!
       user_address = UserAddress.create(addr_id, current_user.id)
       if user_address.save!
