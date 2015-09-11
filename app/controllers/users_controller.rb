@@ -15,8 +15,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    # curr_addr = current_user.
-    @users = User.joins(:addresses).where({addresses: {city: current_user.addresses.first.city}})
+    @users = User.joins(:addresses).where({addresses: {city: params[:city]}})
     render json: @users
   end
 
@@ -33,7 +32,6 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-
     @user = User.new(user_credentials)
     @user.user_proficiency_types.new(proficiency_params)
     if @user.save
