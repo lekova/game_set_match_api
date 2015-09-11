@@ -70,6 +70,11 @@ Create a calendar or get one from Google Calendar API
 How to store availability times?
 
 
+Status:
+0 Upcoming
+1 Past
+2 Did not happen
+
 Resources:
 * [Email and Zipcode validations] (https://github.com/DavyJonesLocker/client_side_validations/wiki/Custom-Validators)
 * [How to play tennis] (http://www.tennistips.org/how-to-play-tennis.html)
