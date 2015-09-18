@@ -141,7 +141,7 @@ UserAddress.create([
     name: "home"
   },{
     user_id: 1,
-    address_id: 5,
+    address_id: 6,
     name: "work"
   },{
     user_id: 2,
