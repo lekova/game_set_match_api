@@ -30,6 +30,22 @@ class User < ActiveRecord::Base
     authenticate(password) && set_token && save! && token
   end
 
+	def opponents
+		opponent_ids = []
+		games = Game.where('winner_id = ? OR loser_id = ?', self.id, self.id)
+		# games = Game.where(winner_id: self.id).or(Game.where(loser_id: self.id))
+
+		games.map do |game|
+			if game.winner_id == self.id
+				opponent_ids << game.loser_id
+			else
+				opponent_ids << game.winner_id
+			end
+		end
+		opponent_ids.uniq!
+		User.where(id: opponent_ids)
+	end
+
   private
 
   def set_token
@@ -37,4 +53,3 @@ class User < ActiveRecord::Base
   end
 
 end
-
