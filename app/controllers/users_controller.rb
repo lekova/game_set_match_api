@@ -62,6 +62,10 @@ class UsersController < ApplicationController
     head :no_content
   end
 
+	def opponents
+		render json: current_user.opponents
+	end
+	
   private
 
     def user_credentials
