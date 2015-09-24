@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.joins(:addresses).where({addresses: {city: params[:city]}})
+    @users = User.joins(:addresses).where(addresses: {city: params[:city] })
     render json: @users
   end
 
@@ -53,8 +53,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -62,25 +60,25 @@ class UsersController < ApplicationController
     head :no_content
   end
 
-	def opponents
-		render json: current_user.opponents
-	end
-	
+  def opponents
+    render json: current_user.opponents
+  end
+
   private
 
-    def user_credentials
-      params.require(:credentials).permit(:email, :password, :password_confirmation, :name, :age, :gender, :about_me, :image)
-    end
+  def user_credentials
+    params.require(:credentials).permit(:email, :password, :password_confirmation, :name, :age, :gender, :about_me, :image)
+  end
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :name, :age, :gender, :about_me, :image)
-    end
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :age, :gender, :about_me, :image)
+  end
 
-    def proficiency_params
-      params.require(:proficiency).permit(:proficiency_type_id)
-    end
+  def proficiency_params
+    params.require(:proficiency).permit(:proficiency_type_id)
+  end
 end

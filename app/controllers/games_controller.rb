@@ -47,16 +47,16 @@ class GamesController < ApplicationController
 
   private
 
-    def game_params
-      params.require(:game).permit([
-        :datetime,
-        :duration,
-        :place,
-        :winner_id,
-        :loser_id,
-        :comment,
-        :status,
-        :score
-      ])
-    end
+  def game_params
+    params.require(:game).permit([
+      :datetime,
+      :duration,
+      :place,
+      :winner_id,
+      :loser_id,
+      :comment,
+      :status,
+      :score
+    ])
+  end
 end

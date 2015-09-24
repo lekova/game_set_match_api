@@ -5,6 +5,7 @@ class OpenReadController < ApplicationController
   before_action :set_current_user, only: [:index, :show]
 
   private
+  
   def set_current_user
     return if @current_user
     header = request.headers['Authorization']

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   attr_reader :current_user
 
   def authenticate
-    authenticate_or_request_with_http_token do |token, options|
+    authenticate_or_request_with_http_token do |token|
       @current_user = User.find_by token: token
     end
   end

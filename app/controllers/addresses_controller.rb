@@ -1,5 +1,4 @@
 class AddressesController < OpenReadController
-
   def index
     puts "#{current_user.addresses}"
     addresses = User.find(params[:id]).addresses
@@ -26,7 +25,7 @@ class AddressesController < OpenReadController
   end
 
   def update
-    #TODO
+    # TODO
     address = Address.find(params[:id])
     if address.update!(address_params)
       render json: address
@@ -42,6 +41,7 @@ class AddressesController < OpenReadController
   end
 
   private
+
   def addr_params
     params.require(:info).permit(:id, :street, :city, :state, :coutry, :zip_code)
   end
