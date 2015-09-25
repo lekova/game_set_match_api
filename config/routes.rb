@@ -7,26 +7,26 @@ Rails.application.routes.draw do
   # resources :users, except: [:new, :edit]
 
   post '/login'       => 'users#login'
-  post '/signup'    => 'users#create'
+  post '/signup'      => 'users#create'
   get '/users'        => 'users#index'
   get '/users/:id'    => 'users#show'
   delete '/users/:id' => 'users#destroy'
-	get '/opponents' => 'users#opponents'
+  get '/opponents'    => 'users#opponents'
 
   post '/addresses'     => 'addresses#create'
   post '/addresses/:id' => 'addresses#update'
-  get 'addresses'      => 'addresses#index'
+  get '/addresses'      => 'addresses#index'
   get '/addresses/:id'  => 'addresses#show'
-  delete 'addresses'    => 'addresses#destroy'
+  delete '/addresses'   => 'addresses#destroy'
 
   get '/refresh-navbar', to: 'users#refresh_navbar'
+  get '/dashboard/statistics' => 'dashboard#statistics'
 
   resources :users do
     resources :addresses
   end
 
   resources :games
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
