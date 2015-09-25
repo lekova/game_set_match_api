@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.joins(:addresses).where(addresses: {city: params[:city] })
+    @users = User.joins(:addresses).where(addresses: { city: params[:city] })
     render json: @users
   end
 
