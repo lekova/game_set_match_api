@@ -8,14 +8,14 @@ class User < ActiveRecord::Base
   has_many :proficiency_types, -> { select('proficiency_types.*, user_proficiency_types.user_comment as comment') }, through: :user_proficiency_types
   has_many :user_proficiency_types, dependent: :destroy
 
-  has_many :winner_games, class_name: "Game", foreign_key: "winner_id", dependent: :destroy
-  has_many :loser_games, class_name: "Game", foreign_key: "loser_id", dependent: :destroy
+  has_many :winner_games, class_name: 'Game', foreign_key: 'winner_id', dependent: :destroy
+  has_many :loser_games, class_name: 'Game', foreign_key: 'loser_id', dependent: :destroy
 
   has_many :game_ratings, dependent: :destroy
 
-  has_attached_file :image,  #Or whatever you want to call the image you're uploading.
-              :styles => { :medium => "300x300>", :thumb => "100x100>" },
-              :default_url => "/images/:style/missing.png"
+  has_attached_file :image, # Or whatever you want to call the image you're uploading.
+    :styles => { :medium => '300x300>', :thumb => '100x100>' },
+    :default_url => '/images/:style/missing.png'
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   validates :email, uniqueness: true
@@ -30,26 +30,19 @@ class User < ActiveRecord::Base
     authenticate(password) && set_token && save! && token
   end
 
-	def opponents
-		opponent_ids = []
-		games = Game.where('winner_id = ? OR loser_id = ?', self.id, self.id)
-		# games = Game.where(winner_id: self.id).or(Game.where(loser_id: self.id))
-
-		games.map do |game|
-			if game.winner_id == self.id
-				opponent_ids << game.loser_id
-			else
-				opponent_ids << game.winner_id
-			end
-		end
-		opponent_ids.uniq!
-		User.where(id: opponent_ids)
-	end
+  def opponents
+    opponent_ids = []
+    games = Game.where('winner_id = ? OR loser_id = ?', id, id)
+    games.map do |game|
+      game.winner_id == id ? opponent_ids << game.loser_id : opponent_ids << game.winner_id
+    end
+    opponent_ids.uniq!
+    User.where(id: opponent_ids)
+  end
 
   private
 
   def set_token
     self.token = SecureRandom.hex
   end
-
 end
