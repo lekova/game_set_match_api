@@ -12,10 +12,20 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users with same city
+  # GET /users.json with same city
+  def index
+    if params[:city]
+      render json: User.joins(:addresses).where(addresses: { city: params[:city] })
+    else
+      render json: User.all
+    end
+  end
+
   # GET /users
   # GET /users.json
-  def index
-    @users = User.joins(:addresses).where(addresses: { city: params[:city] })
+  def find_by_city
+    @users =
     render json: @users
   end
 
