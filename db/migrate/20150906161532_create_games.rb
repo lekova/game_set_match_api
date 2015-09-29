@@ -2,7 +2,7 @@ class CreateGames < ActiveRecord::Migration
   def change
     create_table :games do |t|
       t.datetime :datetime
-      t.datetime :duration
+      t.integer :duration
       t.string :place
       t.integer :winner_id, index: true
       t.integer :loser_id, index: true
