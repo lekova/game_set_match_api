@@ -3,7 +3,6 @@ class GamesController < ApplicationController
 
   # GET /games
   def index
-    # params[:won] == "true"
     filter = {}
     filter[:winner] = current_user.id if params[:won]
     filter[:loser] = current_user.id if params[:lost]
