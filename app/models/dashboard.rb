@@ -20,9 +20,9 @@ class Dashboard
   def statistics
     statistics = {}
     totals = {
-      'won_games_count': Game.where(winner_id: @user.id).length,
-      'lost_games_count': Game.where(loser_id: @user.id).length,
-      'opponents_count': @user.opponents.length
+      'won_games_count' => Game.where(winner_id: @user.id).length,
+      'lost_games_count' => Game.where(loser_id: @user.id).length,
+      'opponents_count' => @user.opponents.length
     }
     statistics['totals'] = totals
     statistics['labels'] = @months.keys
