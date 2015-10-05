@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/signup'      => 'users#create'
   get '/users'        => 'users#index'
   get '/users/:id'    => 'users#show'
+  post 'users/check_email' => 'users#check_email'
   delete '/users/:id' => 'users#destroy'
   get '/opponents'    => 'users#opponents'
 
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
 
   get '/refresh-navbar', to: 'users#refresh_navbar'
   get '/dashboard/statistics' => 'dashboard#statistics'
+  get '/proficiency_types' => 'proficiency_types#index'
 
   resources :users do
     resources :addresses
