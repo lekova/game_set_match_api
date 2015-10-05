@@ -39,6 +39,25 @@ class UsersController < ApplicationController
     render json: User.find(params[:id])
   end
 
+  # GET /users/validate
+  def validate
+    if !email || !password || !passwordConfirmation
+      error = 'All fields are required'
+    elsif email.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$/)
+      error = 'Email is invalid'
+    elsif password != passwordConfirmation
+      error = 'Passwords don\'t match'
+    end
+    render json: error
+  end
+
+  # GET /users/check_email
+  def check_email
+    email = User.find(params[:email])
+    puts "This email exists? #{email}"
+    render json: email.exists?
+  end
+
   # POST /users
   # POST /users.json
   def create
