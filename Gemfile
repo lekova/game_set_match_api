@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
@@ -25,9 +24,9 @@ gem 'pry-rails'
 
 gem 'spring'
 
-gem "active_model_serializers", github: "rails-api/active_model_serializers"
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
 gem 'aws-sdk-v1'
 
