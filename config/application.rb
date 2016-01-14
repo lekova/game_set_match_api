@@ -30,12 +30,12 @@ module GameSetMatchApi
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_job.queue_adapter = :delayed_job
     config.active_record.raise_in_transactional_callbacks = true
-
-    config.middleware.use Rack::Cors do
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
-      origins '*'
-      resource '*', :headers => :any, :methods => [:get, :post, :put, :patch, :delete, :options]
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :delete, :patch, :post, :options]
       end
     end
   end
