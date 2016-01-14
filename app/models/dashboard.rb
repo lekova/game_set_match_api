@@ -31,7 +31,7 @@ class Dashboard
   end
 
   def all_months
-    dates = Game.select(:datetime).uniq.where('winner_id = ? OR loser_id = ?', @user.id, @user.id).order(:datetime)
+    dates = Game.select(:datetime).uniq.where('datetime IS NOT NULL AND winner_id = ? OR loser_id = ?', @user.id, @user.id).order(:datetime)
     dates.each_with_object({}) do |date, months|
       months[date.datetime.strftime('%B')] = 0 if !date.datetime.nil? && date.datetime != ''
     end
