@@ -33,7 +33,7 @@ class Dashboard
   def all_months
     dates = Game.select(:datetime).uniq.where('winner_id = ? OR loser_id = ?', @user.id, @user.id).order(:datetime)
     dates.each_with_object({}) do |date, months|
-      months[date.datetime.strftime('%B')] = 0
+      months[date.datetime.strftime('%B')] = 0 if !date.datetime.nil? && date.datetime != ''
     end
   end
 
@@ -41,8 +41,10 @@ class Dashboard
     win_count = all_months
     wins = Game.select(:datetime).where(winner_id: @user.id)
     wins.map do |date|
-      month = date.datetime.strftime('%B')
-      win_count[month] += 1 if win_count[month]
+      if !date.datetime.nil? && date.datetime != ''
+        month = date.datetime.strftime('%B')
+        win_count[month] += 1 if win_count[month]
+      end
     end
     win_count.values
   end
