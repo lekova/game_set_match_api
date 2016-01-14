@@ -7,8 +7,11 @@ class GamesController < ApplicationController
     filter[:winner] = current_user.id if params[:won]
     filter[:loser] = current_user.id if params[:lost]
     filter[:status] = params[:status] if params[:status]
-
-    @games = Game.where(filter)
+    if params[:datetime]
+      @games = Game.where(filter).where('datetime IS NOT NULL')
+    else
+      @games = Game.where(filter).where('datetime IS NULL')
+    end
     render json: @games
   end
 
