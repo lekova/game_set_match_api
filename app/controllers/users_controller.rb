@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   # GET /users.json with same city
   def index
     if params[:city]
-      render json: User.joins(:addresses).where(addresses: { city: params[:city] })
+      render json: User.joins(:addresses).where('"addresses"."city" = ? AND "users"."id" != ?', params[:city], current_user.id)
     else
       render json: User.all
     end
