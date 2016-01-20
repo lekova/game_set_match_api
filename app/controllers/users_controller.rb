@@ -16,7 +16,10 @@ class UsersController < ApplicationController
   # GET /users.json with same city
   def index
     if params[:city]
-      render json: User.joins(:addresses).where('"addresses"."city" = ? AND "users"."id" != ?', params[:city], current_user.id)
+      user_json = User.select('DISTINCT "users".*, "proficiency_types"."name" as "level"')
+        .joins(:addresses).joins(:proficiency_types)
+        .where('"addresses"."city" = ? AND "users"."id" != ?', params[:city], current_user.id)
+      render json: user_json.as_json(:only => [:id, :name, :email, :street, :city, :level])
     else
       render json: User.all
     end
@@ -25,7 +28,6 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def find_by_city
-    @users =
     render json: @users
   end
 
