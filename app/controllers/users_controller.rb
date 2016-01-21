@@ -76,8 +76,16 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
     if @user.update(user_params)
+      head :no_content
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update_proficiency
+    proficiency = UserProficiencyType.find_by(user_id: current_user.id)
+    if proficiency.update(proficiency_type_id: proficiency_params[:proficiency_type_id])
       head :no_content
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -110,6 +118,6 @@ class UsersController < ApplicationController
   end
 
   def proficiency_params
-    params.require(:proficiency).permit(:proficiency_type_id)
+    params.require(:proficiency_types).permit(:proficiency_type_id)
   end
 end
