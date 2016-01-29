@@ -13,7 +13,7 @@ class AddressesController < OpenReadController
   def create
     address = Address.create(addr_params)
     if address.save!
-      user_address = UserAddress.create(addr_id, current_user.id)
+      user_address = current_user.user_addresses.create(address_id: address.id, name: addr_name_params[:name])
       if user_address.save!
         render json: address
       else
@@ -43,6 +43,10 @@ class AddressesController < OpenReadController
   private
 
   def addr_params
-    params.require(:info).permit(:id, :street, :city, :state, :coutry, :zip_code)
+    params.permit(:id, :street, :city, :state, :country, :zipcode)
+  end
+
+  def addr_name_params
+    params.permit(:name)
   end
 end
