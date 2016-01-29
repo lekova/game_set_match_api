@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   before_create :set_token
 
-  has_many :addresses, -> { select('addresses.*, user_addresses.name as name') }, through: :user_addresses
+  has_many :addresses, through: :user_addresses
   has_many :user_addresses, dependent: :destroy
 
   has_many :proficiency_types, -> { select('proficiency_types.*, user_proficiency_types.user_comment as comment') }, through: :user_proficiency_types
