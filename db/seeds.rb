@@ -12,10 +12,10 @@ User.create([
     email: 'lin@lin.com',
     password: 'lin',
     password_confirmation: 'lin',
-    name: 'Lina',
-    age: 12,
+    name: 'Demo User',
+    age: 22,
     gender: 'f',
-    about_me: 'this is some text about lin',
+    about_me: 'This text represents user\'s description. Every user can type his/her interests and express his/her love for tennis!',
     token: '77e21e35a30f341e9fd28a2a06d789f9'
   }, {
     email: 'rad@rad.com',
@@ -77,59 +77,86 @@ User.create([
 Address.destroy_all
 Address.create!([
   {
-    street: 'Hillside Cir',
+    street: '67 Craigie Str',
     city: 'Somerville',
     state: 'MA',
     zipcode: '02143',
-    country: 'US'
+    country: 'USA',
+    name: 'Home',
+    lat: '42.388748',
+    lng: '-71.110803'
   }, {
-    street: 'Hillside Cir',
+    street: '67 Craigie Str',
     city: 'Somerville',
     state: 'MA',
     zipcode: '02143',
-    country: 'US'
+    country: 'USA',
+    name: 'Home',
+    lat: '42.388748',
+    lng: '-71.110803'
   }, {
-    street: 'Dale',
+    street: '10 Dale Str',
     city: 'Malden',
     state: 'MA',
     zipcode: '02148',
-    country: 'US'
+    country: 'USA',
+    name: 'Home',
+    lat: '42.433029',
+    lng: '-71.054784'
   }, {
-    street: 'Dale',
+    street: '10 Dale Str',
     city: 'Malden',
     state: 'MA',
     zipcode: '02148',
-    country: 'US'
+    country: 'USA',
+    name: 'Home',
+    lat: '42.433029',
+    lng: '-71.054784'
   }, {
-    street: 'Franklin',
+    street: '42 Franklin Str',
     city: 'Somerville',
     state: 'MA',
     zipcode: '02143',
-    country: 'US'
+    country: 'USA',
+    name: 'Home',
+    lat: '42.383967',
+    lng: '-71.084493'
   }, {
-    street: '51 State',
+    street: '51 Melcher Str',
     city: 'Boston',
     state: 'MA',
     zipcode: '02210',
-    country: 'US'
+    country: 'USA',
+    name: 'wework',
+    lat: '42.349423',
+    lng: '-71.05.0057'
   }, {
-    street: '51 Melcher',
+    street: '51 Melcher Str',
     city: 'Boston',
     state: 'MA',
     zipcode: '02210',
-    country: 'US'
+    country: 'USA',
+    name: 'My office',
+    lat: '42.349423',
+    lng: '-71.05.0057'
   }, {
-    street: 'Porter Cir',
+    street: '50 State Str',
+    city: 'Boston',
+    state: 'MA',
+    zipcode: '02210',
+    country: 'USA',
+    name: 'Work',
+    lat: '42.359052',
+    lng: '-71.055843'
+  }, {
+    street: '212 Elm Cir',
     city: 'Somerville',
     state: 'MA',
     zipcode: '02143',
-    country: 'US'
-  }, {
-    street: 'Elm Cir',
-    city: 'Somerville',
-    state: 'MA',
-    zipcode: '02143',
-    country: 'US'
+    country: 'USA',
+    name: 'The office',
+    lat: '42.394438',
+    lng: '-71.121308'
   }
 ])
 
@@ -137,44 +164,31 @@ UserAddress.destroy_all
 UserAddress.create([
   {
     user_id: 1,
-    address_id: 1,
-    name: 'home'
+    address_id: 1
   }, {
     user_id: 1,
-    address_id: 6,
-    name: 'work'
+    address_id: 6
   }, {
     user_id: 2,
-    address_id: 1,
-    name: 'home'
+    address_id: 2
   }, {
     user_id: 3,
-    address_id: 3,
-    name: 'home'
+    address_id: 3
   }, {
     user_id: 4,
-    address_id: 4,
-    name: 'home'
+    address_id: 4
   }, {
     user_id: 5,
-    address_id: 5,
-    name: 'home'
+    address_id: 5
   }, {
     user_id: 5,
-    address_id: 6,
-    name: 'work'
-  }, {
-    user_id: 5,
-    address_id: 7,
-    name: "Lina's work"
+    address_id: 8
   }, {
     user_id: 6,
-    address_id: 8,
-    name: 'The Den'
+    address_id: 7
   }, {
     user_id: 7,
-    address_id: 9,
-    name: 'La Casa'
+    address_id: 9
   }
 ])
 
@@ -214,7 +228,7 @@ UserProficiencyType.create!([
   {
     user_id: 1,
     proficiency_type_id: 3,
-    user_comment: ''
+    user_comment: 'I think I can do better'
   }, {
     user_id: 2,
     proficiency_type_id: 2,
@@ -251,7 +265,7 @@ Game.create!([
     loser_id: 2,
     comment: 'Be there at 8',
     status: 1,
-    score: '6:4, 7:6, 6:5'
+    score: '6:4, 7:6, 6:4'
   }, {
     datetime: DateTime.new(2015, 5, 6),
     duration: 90,
@@ -269,7 +283,7 @@ Game.create!([
     loser_id: 1,
     comment: 'We are playing in Somerville. On the Tufts tennis courts again.',
     status: 1,
-    score: '6:4, 6:1, 6:5'
+    score: '6:4, 6:1, 6:3'
   }, {
     datetime: DateTime.new(2015, 5, 21),
     duration: 45,
@@ -278,7 +292,7 @@ Game.create!([
     loser_id: 1,
     comment: 'We are playing in Somerville. On the Tufts tennis courts again.',
     status: 1,
-    score: '6:5, 6:3, 6:5'
+    score: '6:2, 6:3, 6:4'
   }, {
     datetime: DateTime.new(2015, 5, 28),
     duration: 90,
@@ -287,7 +301,7 @@ Game.create!([
     loser_id: 1,
     comment: 'We are playing in Somerville. On the Tufts tennis courts again.',
     status: 1,
-    score: '6:4, 6:1, 6:5'
+    score: '6:4, 6:1, 6:3'
   }, {
     datetime: DateTime.new(2015, 6, 6),
     duration: 90,
@@ -305,7 +319,7 @@ Game.create!([
     loser_id: 2,
     comment: 'Second day playing with Val and Alex',
     status: 1,
-    score: '6:4, 6:1, 6:5'
+    score: '6:4, 6:1, 7:6'
   }, {
     datetime: DateTime.new(2015, 6, 14),
     duration: 90,
@@ -314,7 +328,7 @@ Game.create!([
     loser_id: 1,
     comment: 'I am getting better at this, still suck pretty much',
     status: 1,
-    score: '6:2, 6:5, 6:5'
+    score: '6:2, 6:4, 6:4'
   }, {
     datetime: DateTime.new(2015, 6, 14),
     duration: 90,
@@ -323,7 +337,61 @@ Game.create!([
     loser_id: 5,
     comment: 'Playing with Rozi is always fun. Good game',
     status: 1,
-    score: '6:5, 6:5, 6:5'
+    score: '6:2, 6:4, 6:3'
+  }, {
+    datetime: DateTime.new(2015, 7, 12),
+    duration: 90,
+    place: 'Malden',
+    winner_id: 4,
+    loser_id: 1,
+    comment: 'Playing with Alex is always fun. Good game',
+    status: 1,
+    score: '6:5, 6:4, 6:3'
+  }, {
+    datetime: DateTime.new(2015, 7, 21),
+    duration: 90,
+    place: 'Cambridge',
+    winner_id: 4,
+    loser_id: 1,
+    comment: 'Playing with Alex is always fun. Good game',
+    status: 1,
+    score: '6:5, 6:4, 6:3'
+  }, {
+    datetime: DateTime.new(2015, 8, 2),
+    duration: 90,
+    place: 'Everett',
+    winner_id: 1,
+    loser_id: 3,
+    comment: 'Playing with Val is always fun. Nice game',
+    status: 1,
+    score: '6:5, 6:4, 6:3'
+  }, {
+    datetime: DateTime.new(2015, 8, 4),
+    duration: 90,
+    place: 'Cambridge',
+    winner_id: 1,
+    loser_id: 6,
+    comment: 'Playing with Krum is always fun. Good game',
+    status: 1,
+    score: '6:2, 6:4, 6:3'
+  }, {
+    datetime: DateTime.new(2015, 8, 10),
+    duration: 90,
+    place: 'Malden',
+    winner_id: 3,
+    loser_id: 1,
+    comment: 'This time Val\'s got me',
+    status: 1,
+    score: '6:2, 6:3, 6:2'
+  }, {
+    datetime: DateTime.new(2015, 8, 11),
+    duration: 90,
+    place: 'Somerville',
+    winner_id: 1,
+    loser_id: 2,
+    comment: 'Playing with Rado is always fun. Good game',
+    status: 1,
+    score: '6:2, 7:6, 6:3'
   }
 ])
 

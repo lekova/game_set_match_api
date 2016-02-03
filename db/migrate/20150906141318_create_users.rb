@@ -4,10 +4,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email, null: false, index: { unique: true }
       t.string :password_digest, null: false
       t.string :name, null: false
-      t.integer :age, null: false
-      t.string :gender, null: false
+      t.integer :age, null: true
+      t.string :gender, null: true
       t.text :about_me
-      t.string :token, null: false, index: {unique: true}
+      t.string :token, null: false, index: { unique: true }
       t.attachment :image
 
       t.timestamps null: false

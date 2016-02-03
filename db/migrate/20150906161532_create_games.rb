@@ -10,8 +10,8 @@ class CreateGames < ActiveRecord::Migration
       t.integer :status, default: 0, null: false
       t.string :score
 
-      t.foreign_key :users, :column => :winner_id, :dependent => :delete
-      t.foreign_key :users, :column => :loser_id, :dependent => :delete
+      t.foreign_key :users, column: :winner_id, dependent: :delete
+      t.foreign_key :users, column: :loser_id, dependent: :delete
 
       t.timestamps null: false
     end

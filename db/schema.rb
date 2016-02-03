@@ -11,20 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129192425) do
+ActiveRecord::Schema.define(version: 20150906162453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
+    t.string   "name",       null: false
     t.string   "street",     null: false
     t.string   "city",       null: false
     t.string   "state"
     t.string   "zipcode",    null: false
     t.string   "country"
+    t.decimal  "lat",        null: false
+    t.decimal  "lng",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "name"
   end
 
   create_table "game_ratings", force: :cascade do |t|
@@ -73,15 +75,15 @@ ActiveRecord::Schema.define(version: 20160129192425) do
   add_index "user_addresses", ["user_id"], name: "index_user_addresses_on_user_id", using: :btree
 
   create_table "user_proficiency_types", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "proficiency_type_id"
+    t.integer  "user_id",             null: false
+    t.integer  "proficiency_type_id", null: false
     t.string   "user_comment"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
 
   add_index "user_proficiency_types", ["proficiency_type_id"], name: "index_user_proficiency_types_on_proficiency_type_id", using: :btree
-  add_index "user_proficiency_types", ["user_id"], name: "index_user_proficiency_types_on_user_id", unique: true, using: :btree
+  add_index "user_proficiency_types", ["user_id"], name: "index_user_proficiency_types_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",              null: false
