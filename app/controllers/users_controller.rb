@@ -17,9 +17,9 @@ class UsersController < ApplicationController
   def index
     if params[:city]
       user_json = User.select('DISTINCT "users".*, "proficiency_types"."name" as "level"')
-        .joins(:addresses).joins(:proficiency_types)
+        .joins(:addresses).joins(:proficiency_types).includes(:addresses)
         .where('"addresses"."city" = ? AND "users"."id" != ?', params[:city], current_user.id)
-      render json: user_json.as_json(:only => [:id, :name, :email, :street, :city, :level])
+      render json: user_json
     else
       render json: User.all
     end
