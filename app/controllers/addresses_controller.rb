@@ -37,6 +37,6 @@ class AddressesController < OpenReadController
   private
 
   def addr_params
-    params.permit(:id, :street, :city, :state, :country, :zipcode, :name)
+    params.permit(:id, :street, :city, :state, :country, :zipcode, :name, :lat, :lng)
   end
 end
